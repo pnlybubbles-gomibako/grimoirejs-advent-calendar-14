@@ -1,0 +1,21 @@
+<goml width="512" height="512">
+  <geometry type="ita" name="ita" div="10,1,1"/>
+  <geometry type="ita" name="unit" div="1,1,1"/>
+  <import-material typeName="mageru" src="./mageru.sort"/>
+  <material id="mageru" type="mageru" sun="n(1,-1.1,-1.2)" ambient="#444" color="#fff" texture="tex.jpg" radius="2" coef="0.13"/>
+  <renderer camera=".camera" viewport="0,0,512,512">
+  </renderer>
+  <scene>
+    <camera class="camera" near="0.01" far="100.0" position="0,0,30">
+      <camera.components>
+        <MouseCameraControl moveSpeed="1" origin="0,0,0"/>
+      </camera.components>
+    </camera>
+    <mesh class="ita" geometry="ita" material="#mageru" scale="6,1,6" targetBuffer="wireframe"/>
+    <object id="axis">
+      <mesh geometry="unit" color="red" position="1,0,0" scale="2,0,0" targetBuffer="wireframe"/>
+      <mesh geometry="unit" color="green" position="0,1,0" scale="0,2,0" targetBuffer="wireframe"/>
+      <mesh geometry="unit" color="blue" position="0,0,1" scale="0,0,2" targetBuffer="wireframe"/>
+    </object>
+  </scene>
+</goml>
